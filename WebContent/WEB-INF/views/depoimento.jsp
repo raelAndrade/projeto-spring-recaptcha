@@ -6,8 +6,7 @@
 		<div class="form-group">
 			<label for="titulo">Título:</label>
 			<form:errors path="titulo" cssClass="error" /> 
-			<input type="text"
-				class="form-control" id="titulo" name="titulo" placeholder="Título" required="required">
+			<input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" required="required">
 		</div>
 		<div class="form-group">
 			<label for="textarea">Mensagem:</label>
