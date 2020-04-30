@@ -1,8 +1,10 @@
 package br.com.alura.owasp.infra;
 
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -37,5 +39,17 @@ public class CasaDeShowConfiguration extends WebMvcConfigurerAdapter {
 				"/resources/");
 		registry.addResourceHandler("/image/**")
 				.addResourceLocations("/image/");
+	}
+	
+	/*
+	 * Esse método foi necessário para que o Spring MVC saiba que deve utilizar o 
+	 * arquivo messages.properties dentro da pasta WEB-INF para mostrar as mensagens de erro.
+	 */
+	@Bean
+	public MessageSource messageSource() {
+		ReloadableResourceBundleMessageSource bundle = new ReloadableResourceBundleMessageSource();
+		bundle.setBasename("/WEB-INF/messages");
+		bundle.setDefaultEncoding("UTF-8");
+		return bundle;
 	}
 }
