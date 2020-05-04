@@ -40,8 +40,7 @@
 									</div>
 								</div>
 							</form>
-							<form:form id="register-form"
-								action="${s:mvcUrl('UC#registrar').build()}" method="post"
+							<form:form id="register-form" action="${s:mvcUrl('UC#registrar').build()}" method="post"
 								role="form" style="display: none;" commandName="usuarioRegistro"
 								enctype="multipart/form-data">
 								<div class="form-group">
